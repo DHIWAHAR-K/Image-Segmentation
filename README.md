@@ -42,4 +42,4 @@ Evaluate the trained model using metrics like Dice coefficient, sensitivity, and
 
 
 ## License
-Feel free to customize this README according to your project's specific requirements and details.
+Feel free to modify and use the code for evaluating classification models or educational purposes!.
