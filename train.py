@@ -1,7 +1,8 @@
 # train.py
+import os
 import torch
-from torch.utils.data import DataLoader
 from model import UNet
+from torch.utils.data import DataLoader
 from data_loader import BrainScanDataset
 
 def count_parameters(model):
