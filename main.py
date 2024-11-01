@@ -1,22 +1,27 @@
-# main.py
+#main.py
 import os
 import torch
-from torch.utils.data import DataLoader
 from model import UNet
-from data_loader import BrainScanDataset
 from train import train_model
-from utils import count_parameters, save_model
+from torch.utils.data import DataLoader
+from data_loader import BrainScanDataset
+from utils import count_parameters, save_model, setup_logging
 
 if __name__ == "__main__":
+    setup_logging()
+
     # Settings for training
     train_config = {
-        'device': 'cuda' if torch.cuda.is_available() else 'cpu',
+        'device': 'mps' if torch.backends.mps.is_available() else 'cpu',
         'n_epochs': 12,
         'batch_size': 32,
         'learning_rate': 1e-3,
         'batches_per_epoch': 50,
         'lr_decay_factor': 1
     }
+
+    # Print the device being used
+    print(f"Using device: {train_config['device']}")
 
     # Directory containing .h5 files
     directory = "../image-segmentation/dataset/BraTS2020_training_data/data/"

@@ -3,3 +3,4 @@ torch
 torchvision
 h5py
 numpy
+tqdm
